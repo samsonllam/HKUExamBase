@@ -32,8 +32,8 @@ import '!!style-loader!css-loader!stylus-loader!../assets/style/base.styl'
 
 // @storybook/addon-options/register 基礎設置
 setOptions({
-  name: 'nuxt blog',
-  url: 'https://github.com/hunterliu1003/blog',
+  name: 'HKUExamBase ',
+  url: 'https://github.com/samsonllam/HKUExamBase',
   addonPanelInRight: true
 })
 
