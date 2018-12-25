@@ -1,0 +1,24 @@
+import Vue from 'vue'
+
+import { storiesOf } from '@storybook/vue'
+import { action } from '@storybook/addon-actions'
+import { withReadme }  from 'storybook-readme'
+import '@storybook/addon-console'
+import README from './README.md'
+
+import {{ properCase name }} from '.'
+
+Vue.component('{{ properCase name }}', {{ properCase name }})
+
+storiesOf('{{ properCase name }}', module)
+  .add('{{ properCase name }}', withReadme(README, () => ({
+    methods: {
+      log() {
+        action('{{ properCase name }}')()
+      },
+    },
+    template: (
+      pug
+      `{{ properCase name }} `
+    )
+  })))

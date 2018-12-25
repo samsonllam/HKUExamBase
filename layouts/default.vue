@@ -80,7 +80,7 @@
       :fixed="fixed"
       app
     >
-      <span>&copy; 2017</span>
+      <span>&copy; 2018 Samson Lam</span>
     </v-footer>
   </v-app>
 </template>
@@ -99,7 +99,7 @@
         miniVariant: false,
         right: true,
         rightDrawer: false,
-        title: 'Vuetify.js'
+        title: 'HKUExamBase'
       }
     }
   }
