@@ -21,7 +21,6 @@
     <br>
     <form>
       <v-text-field
-        v-model="message1"
         label="Course Code"
         clearable
       />

@@ -13,7 +13,8 @@
     "precommit": "npm run lint",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "generate:storybook": "build-storybook -c .storybook -o blog-storybook",
-    "plop": "plop --plopfile ./plop/index.js"
+    "plop": "plop --plopfile ./plop/index.js",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "cross-env": "^5.2.0",
