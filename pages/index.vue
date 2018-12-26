@@ -2,48 +2,53 @@
   <v-layout
     column
     justify-center
-    align-center>
-
-    <v-jumbotron
-      :gradient="gradient"
-      dark
-      src="https://cdn.vuetifyjs.com/images/parallax/material2.jpg"
+    align-center
+  >
+    <v-flex 
+      xs12 
+      sm8 
+      md6
     >
-      <v-container fill-height>
-        <v-layout align-center>
-          <v-flex text-xs-center>
-            <h3 class="display-3">HKUExamBase</h3>
-          </v-flex>
-        </v-layout>
-      </v-container>
-    </v-jumbotron>
-
-    <br>
-    <form>
-      <v-text-field
-        label="Course Code"
-        clearable
-      />
-    </form>
-
-    <v-data-table
-      :headers="headers"
-      :items="desserts"
-      class="elevation-1"
-    >
-      <template 
-        slot="items" 
-        slot-scope="props"
+      <v-jumbotron
+        :gradient="gradient"
+        dark
+        src="https://cdn.vuetifyjs.com/images/parallax/material2.jpg"
       >
-        <td>{{ props.item.name }}</td>
-        <td class="text-xs-right">{{ props.item.calories }}</td>
-        <td class="text-xs-right">{{ props.item.fat }}</td>
-        <td class="text-xs-right">{{ props.item.carbs }}</td>
-        <td class="text-xs-right">{{ props.item.protein }}</td>
-        <td class="text-xs-right">{{ props.item.iron }}</td>
-      </template>
-    </v-data-table>
+        <v-container fill-height>
+          <v-layout align-center>
+            <v-flex text-xs-center>
+              <h3 class="display-3">HKUExamBase</h3>
+            </v-flex>
+          </v-layout>
+        </v-container>
+      </v-jumbotron>
 
+      <br>
+      <form>
+        <v-text-field
+          label="Course Code"
+          clearable
+        />
+      </form>
+
+      <v-data-table
+        :headers="headers"
+        :items="desserts"
+        class="elevation-1"
+      >
+        <template 
+          slot="items" 
+          slot-scope="props"
+        >
+          <td>{{ props.item.name }}</td>
+          <td class="text-xs-right">{{ props.item.calories }}</td>
+          <td class="text-xs-right">{{ props.item.fat }}</td>
+          <td class="text-xs-right">{{ props.item.carbs }}</td>
+          <td class="text-xs-right">{{ props.item.protein }}</td>
+          <td class="text-xs-right">{{ props.item.iron }}</td>
+        </template>
+      </v-data-table>
+    </v-flex>
   </v-layout>
 </template>
 
