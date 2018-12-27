@@ -55,15 +55,34 @@
           <td>{{ props.item.code }}</td>
           <td class="text-xs-right">{{ props.item.title }}</td>
           <td class="text-xs-right">{{ props.item.exam_date }}</td>
-          <td class="text-xs-right">{{ props.item.department }}</td>
-          <td class="text-xs-right">{{ props.item.blocked }}</td>
-          <td class="text-xs-right">{{ props.item.remark }}</td>
-          <td class="text-xs-center"><a 
-            :href="props.item.url" 
-            target="_blank"
-          >
-            Enter
-          </a></td>
+          <td class="text-xs-right">{{ props.item.department.toString() }}</td>
+
+          <td class="text-xs-center">
+            <v-tooltip 
+              v-if="props.item.remark != null"
+              bottom
+            >
+              <div slot="activator">
+                <v-icon
+                  slot="activator"
+                  color="primary"
+                  dark
+                >info</v-icon>
+              </div>
+              <span>{{ props.item.remark }}</span>
+            </v-tooltip>
+          </td>
+          
+          <td class="text-xs-center">
+            <a 
+              v-if="!props.item.blocked" 
+              :href="props.item.url"
+              target="_blank"
+            >
+              Enter
+            </a>
+          </td>
+
         </template>
       </v-data-table>
     </v-flex>
@@ -94,8 +113,10 @@ export default {
       { text: 'Title', value: 'title' },
       { text: 'Exam Date', value: 'exam_date' },
       { text: 'Department', value: 'department' },
-      { text: 'Blocked', value: 'blocked' },
-      { text: 'Remark', value: 'remark' },
+      { text: 'Remark', 
+        sortable: false,
+        value: 'remark' 
+      },
       { text: 'Enter', 
         sortable: false,
         value: 'enter' 
@@ -112,16 +133,10 @@ export default {
   //   //   self.pastpaper = data;
   //   // });
 
-  //   axios.get('https://hkuexambaseapi.herokuapp.com/pastpaper/comp3230').then((res) => {
+  //   axios.get('http://localhost:3000/pastpaper/comp3230').then((res) => {
   //     res.data.forEach(course => {
-  //       const code = course.code;
-  //       const pastpapers = course.pastpaper;
-  //       pastpapers.forEach(pastpaper => {
-  //         pastpaper.code = code;
-  //         self.pastpaper.push(pastpaper)
-  //       });
+  //       self.pastpaper = res.data;
   //     });
-  //     self.pastpaper = [].concat.apply([], self.pastpaper);
   //   })
   // },
   methods:{
