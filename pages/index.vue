@@ -9,7 +9,7 @@
       sm8 
       md6
     >
-      <v-jumbotron
+      <v-img
         :gradient="gradient"
         dark
         src="https://cdn.vuetifyjs.com/images/parallax/material2.jpg"
@@ -21,31 +21,49 @@
             </v-flex>
           </v-layout>
         </v-container>
-      </v-jumbotron>
+      </v-img>
 
       <br>
-      <form>
-        <v-text-field
-          label="Course Code"
-          clearable
-        />
-      </form>
+
+      <v-text-field
+        :loading="loading"
+        v-model="code"
+        label="Course Code"
+        clearable
+        placeholder="ACCT1101"
+        @keyup.enter.native="searchByCode"
+      />
+
+      <!-- Not Foudn Alert -->
+      <v-alert
+        :value="notFoundAlert"
+        type="error"
+        transition="scale-transition"
+      >
+        This course does not exist.
+      </v-alert>
 
       <v-data-table
         :headers="headers"
-        :items="desserts"
+        :items="pastpaper"
         class="elevation-1"
       >
         <template 
           slot="items" 
           slot-scope="props"
         >
-          <td>{{ props.item.name }}</td>
-          <td class="text-xs-right">{{ props.item.calories }}</td>
-          <td class="text-xs-right">{{ props.item.fat }}</td>
-          <td class="text-xs-right">{{ props.item.carbs }}</td>
-          <td class="text-xs-right">{{ props.item.protein }}</td>
-          <td class="text-xs-right">{{ props.item.iron }}</td>
+          <td>{{ props.item.code }}</td>
+          <td class="text-xs-right">{{ props.item.title }}</td>
+          <td class="text-xs-right">{{ props.item.exam_date }}</td>
+          <td class="text-xs-right">{{ props.item.department }}</td>
+          <td class="text-xs-right">{{ props.item.blocked }}</td>
+          <td class="text-xs-right">{{ props.item.remark }}</td>
+          <td class="text-xs-center"><a 
+            :href="props.item.url" 
+            target="_blank"
+          >
+            Enter
+          </a></td>
         </template>
       </v-data-table>
     </v-flex>
@@ -53,6 +71,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   head: {
     script: [
@@ -61,37 +81,68 @@ export default {
   },
   data: () => ({
     gradient: 'to top right, rgba(14,180,142, .7), rgba(0,158,214, .7)',
-    pastpaper: [],
+    loading: false,
+    code: '',
+    notFoundAlert: false,
     headers: [
       {
-        text: 'Dessert (100g serving)',
+        text: 'Code',
         align: 'left',
-        sortable: false,
-        value: 'name'
+        // sortable: false,
+        value: 'code'
       },
-      { text: 'Calories', value: 'calories' },
-      { text: 'Fat (g)', value: 'fat' },
-      { text: 'Carbs (g)', value: 'carbs' },
-      { text: 'Protein (g)', value: 'protein' },
-      { text: 'Iron (%)', value: 'iron' }
-    ],
-    desserts: [
-      {
-        value: false,
-        name: 'Frozen Yogurt',
-        calories: 159,
-        fat: 6.0,
-        carbs: 24,
-        protein: 4.0,
-        iron: '1%'
+      { text: 'Title', value: 'title' },
+      { text: 'Exam Date', value: 'exam_date' },
+      { text: 'Department', value: 'department' },
+      { text: 'Blocked', value: 'blocked' },
+      { text: 'Remark', value: 'remark' },
+      { text: 'Enter', 
+        sortable: false,
+        value: 'enter' 
       }
-    ]
+    ],
+    pastpaper: [],
   }),
-  mounted() { // when the Vue app is booted up, this is run automatically.
-    var self = this // create a closure to access component in the callback below
-    $.getJSON('https://hkuexambaseapi.herokuapp.com/pastpaper/comp3230', function(data) {
-      self.posts = data;
-    });
-  }
+  // mounted() { // when the Vue app is booted up, this is run automatically.
+  //   var self = this // create a closure to access component in the callback below
+  //   // $.getJSON('https://hkuexambaseapi.herokuapp.com/pastpaper/comp3230', function(data) {
+  //   //   data.forEach(course => {
+        
+  //   //   });
+  //   //   self.pastpaper = data;
+  //   // });
+
+  //   axios.get('https://hkuexambaseapi.herokuapp.com/pastpaper/comp3230').then((res) => {
+  //     res.data.forEach(course => {
+  //       const code = course.code;
+  //       const pastpapers = course.pastpaper;
+  //       pastpapers.forEach(pastpaper => {
+  //         pastpaper.code = code;
+  //         self.pastpaper.push(pastpaper)
+  //       });
+  //     });
+  //     self.pastpaper = [].concat.apply([], self.pastpaper);
+  //   })
+  // },
+  methods:{
+    searchByCode () {
+      var self = this // create a closure to access component in the callback below
+      self.loading = true; // start loading
+      self.notFoundAlert = false; // close not found alert
+      self.pastpaper = [];
+      axios.get(`http://localhost:3000/pastpaper/${self.code}`).then((res) => {
+      // axios.get(`https://hkuexambaseapi.herokuapp.com/pastpaper/${self.code}`).then((res) => {
+        if(res.data.status == 404){
+          self.notFoundAlert = true; // show not found alert
+        } else {
+          self.pastpaper = res.data;
+        }
+        self.loading = false; // stop loading
+      }).catch(err => {
+        console.log(err)
+        self.loading = false; // stop loading
+      })
+    }
+  },
 }
 </script>

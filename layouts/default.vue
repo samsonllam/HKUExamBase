@@ -1,6 +1,6 @@
 <template>
   <v-app dark>
-    <v-navigation-drawer
+    <!-- <v-navigation-drawer
       :mini-variant="miniVariant"
       :clipped="clipped"
       v-model="drawer"
@@ -23,7 +23,7 @@
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
-    </v-navigation-drawer>
+    </v-navigation-drawer> -->
     
     <!-- toolbar -->
     <v-toolbar
@@ -31,7 +31,7 @@
       fixed
       app
     >
-      <v-toolbar-side-icon @click="drawer = !drawer" />
+      <!-- <v-toolbar-side-icon @click="drawer = !drawer" /> -->
       <v-toolbar-title v-text="title"/>
     </v-toolbar>
 
