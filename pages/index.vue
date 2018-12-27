@@ -11,7 +11,7 @@
     >
       <v-img
         :gradient="gradient"
-        aspect-ratio="4"
+        aspect-ratio="2"
         dark
         src="https://cdn.vuetifyjs.com/images/parallax/material2.jpg"
       >
@@ -19,21 +19,21 @@
           <v-layout align-center>
             <v-flex text-xs-center>
               <h3 class="display-2">HKUExamBase</h3>
+              <br><br>
+              <v-text-field
+                :loading="loading"
+                v-model="code"
+                label="Course Code"
+                color="rgba(150, 255, 120, 0.8)"
+                clearable
+                placeholder="ACCT1101"
+                @keyup.enter.native="searchByCode"
+              />
             </v-flex>
           </v-layout>
         </v-container>
       </v-img>
 
-      <br>
-
-      <v-text-field
-        :loading="loading"
-        v-model="code"
-        label="Course Code"
-        clearable
-        placeholder="ACCT1101"
-        @keyup.enter.native="searchByCode"
-      />
 
       <!-- Not Foudn Alert -->
       <v-alert
