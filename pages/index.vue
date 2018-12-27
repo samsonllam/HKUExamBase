@@ -11,13 +11,14 @@
     >
       <v-img
         :gradient="gradient"
+        aspect-ratio="4"
         dark
         src="https://cdn.vuetifyjs.com/images/parallax/material2.jpg"
       >
         <v-container fill-height>
           <v-layout align-center>
             <v-flex text-xs-center>
-              <h3 class="display-3">HKUExamBase</h3>
+              <h3 class="display-2">HKUExamBase</h3>
             </v-flex>
           </v-layout>
         </v-container>
@@ -107,7 +108,6 @@ export default {
       {
         text: 'Code',
         align: 'left',
-        // sortable: false,
         value: 'code'
       },
       { text: 'Title', value: 'title' },
@@ -145,8 +145,8 @@ export default {
       self.loading = true; // start loading
       self.notFoundAlert = false; // close not found alert
       self.pastpaper = [];
-      axios.get(`http://localhost:3000/pastpaper/${self.code}`).then((res) => {
-      // axios.get(`https://hkuexambaseapi.herokuapp.com/pastpaper/${self.code}`).then((res) => {
+      // axios.get(`http://localhost:3000/pastpaper/${self.code}`).then((res) => {
+      axios.get(`https://hkuexambaseapi.herokuapp.com/pastpaper/${self.code}`).then((res) => {
         if(res.data.status == 404){
           self.notFoundAlert = true; // show not found alert
         } else {
