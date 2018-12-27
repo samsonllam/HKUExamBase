@@ -32,7 +32,7 @@
       app
     >
       <!-- <v-toolbar-side-icon @click="drawer = !drawer" /> -->
-      <v-toolbar-title v-text="title"/>
+      <!-- <v-toolbar-title v-text="title"/> -->
     </v-toolbar>
 
     <v-content>
