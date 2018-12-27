@@ -11,7 +11,7 @@
     >
       <v-img
         :gradient="gradient"
-        aspect-ratio="2"
+        aspect-ratio="2.5"
         dark
         src="https://cdn.vuetifyjs.com/images/parallax/material2.jpg"
       >
@@ -19,7 +19,7 @@
           <v-layout align-center>
             <v-flex text-xs-center>
               <h3 class="display-2">HKUExamBase</h3>
-              <br><br>
+              <br>
               <v-text-field
                 :loading="loading"
                 v-model="code"
