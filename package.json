@@ -14,7 +14,8 @@
     "storybook": "start-storybook -p 9001 -c .storybook",
     "generate:storybook": "build-storybook -c .storybook -o blog-storybook",
     "plop": "plop --plopfile ./plop/index.js",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "generate-app-icons": "sh ./scripts/generate-app-icons.sh"
   },
   "dependencies": {
     "axios": "^0.18.0",
