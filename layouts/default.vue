@@ -32,7 +32,7 @@
       app
     >
       <!-- <v-toolbar-side-icon @click="drawer = !drawer" /> -->
-      <!-- <v-toolbar-title v-text="title"/> -->
+      <v-toolbar-title v-text="title"/>
     </v-toolbar>
 
     <v-content>
@@ -59,7 +59,7 @@
       :fixed="fixed"
       app
     >
-      <span>&copy; 2018 Samson Lam</span>
+      <span>&copy; {{ getYear() }} samsonllam</span>
     </v-footer>
   </v-app>
 </template>
@@ -78,6 +78,11 @@
         right: true,
         rightDrawer: false,
         title: 'HKUExamBase'
+      }
+    },
+    methods: {
+      getYear(){
+        return new Date().getFullYear();
       }
     }
   }

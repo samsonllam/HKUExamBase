@@ -124,28 +124,13 @@ export default {
     ],
     pastpaper: [],
   }),
-  // mounted() { // when the Vue app is booted up, this is run automatically.
-  //   var self = this // create a closure to access component in the callback below
-  //   // $.getJSON('https://hkuexambaseapi.herokuapp.com/pastpaper/comp3230', function(data) {
-  //   //   data.forEach(course => {
-        
-  //   //   });
-  //   //   self.pastpaper = data;
-  //   // });
-
-  //   axios.get('http://localhost:3000/pastpaper/comp3230').then((res) => {
-  //     res.data.forEach(course => {
-  //       self.pastpaper = res.data;
-  //     });
-  //   })
-  // },
   methods:{
     searchByCode () {
       var self = this // create a closure to access component in the callback below
       self.loading = true; // start loading
       self.notFoundAlert = false; // close not found alert
       self.pastpaper = [];
-      // axios.get(`http://localhost:3000/pastpaper/${self.code}`).then((res) => {
+      // axios.get(`http://localhost:3001/pastpaper/${self.code}`).then((res) => {
       axios.get(`https://hkuexambaseapi.herokuapp.com/pastpaper/${self.code}`).then((res) => {
         if(res.data.status == 404){
           self.notFoundAlert = true; // show not found alert
@@ -157,6 +142,13 @@ export default {
         console.log(err)
         self.loading = false; // stop loading
       })
+
+      //       // exam_date = new Date(dateMatch[2], dateMatch[1], dateMatch[0]);
+
+      // if (parseInt(dateMatch[2]) <= 9) dateMatch[2] = '0' + dateMatch[2];
+      // if (parseInt(dateMatch[1]) <= 9) dateMatch[1] = '0' + dateMatch[1];
+
+      // exam_date = [dateMatch[3], dateMatch[2], dateMatch[1]].join('-');
     }
   },
 }
