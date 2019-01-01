@@ -8,9 +8,9 @@
 
 ## Features
 
-✔ Display elegant Pastpaper
+✔ Display elegant Pastpaper details
 
-✔ Pretty print metadata
+✔ Find out all related pastpaper in one click
 
 ## Source
 
