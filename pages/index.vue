@@ -2,7 +2,6 @@
   <v-layout
     column
     justify-center
-    align-center
   >
     <v-flex 
       xs12 
@@ -10,8 +9,8 @@
       md6
     >
       <v-img
-        :gradient="gradient"
-        aspect-ratio="2.5"
+        gradient="to top right, rgba(14,180,142, .7), rgba(0,158,214, .7)"
+        aspect-ratio="2.7"
         dark
         src="https://cdn.vuetifyjs.com/images/parallax/material2.jpg"
       >
@@ -101,7 +100,6 @@ export default {
     ]
   },
   data: () => ({
-    gradient: 'to top right, rgba(14,180,142, .7), rgba(0,158,214, .7)',
     loading: false,
     code: '',
     courses: [],
