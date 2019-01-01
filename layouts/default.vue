@@ -32,6 +32,9 @@
       app
     >
       <!-- <v-toolbar-side-icon @click="drawer = !drawer" /> -->
+      <img 
+        src="@/assets/images/icon_n.png" 
+        width="40px">
       <v-toolbar-title v-text="title"/>
     </v-toolbar>
 
