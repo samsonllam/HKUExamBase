@@ -40,7 +40,7 @@
         <nuxt />
       </v-container>
     </v-content>
-    <v-navigation-drawer
+    <!-- <v-navigation-drawer
       :right="right"
       v-model="rightDrawer"
       temporary
@@ -54,12 +54,12 @@
           <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
         </v-list-tile>
       </v-list>
-    </v-navigation-drawer>
+    </v-navigation-drawer> -->
     <v-footer
       :fixed="fixed"
       app
     >
-      <span>&copy; {{ getYear() }} samsonllam</span>
+      <span>&copy; {{ getYear() }} FREESOME</span>
     </v-footer>
   </v-app>
 </template>
