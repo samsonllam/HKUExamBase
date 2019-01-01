@@ -3,18 +3,18 @@
 > Refined HKUL ExamBase
 
 <div align="center">
-    <img src="./assets/images/icon_bg.jpg" width="400px"/>
+    <img src="./assets/images/icon.png" width="400px"/>
 </div>
 
-## Feature
+## Features
 
-✔ Display elegant Paspaper
+✔ Display elegant Pastpaper
 
 ✔ Pretty print metadata
 
 ## Source
 
-* [Exambase](http://exambase.lib.hku.hk.eproxy.lib.hku.hk/exhibits/show/exam/home)
+* [HKUL Exambase](http://exambase.lib.hku.hk.eproxy.lib.hku.hk/exhibits/show/exam/home)
 
 ## License
 
