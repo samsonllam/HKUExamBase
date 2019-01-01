@@ -43,7 +43,7 @@
         type="error"
         transition="scale-transition"
       >
-        This course does not exist.
+        {{ errmsg }}
       </v-alert>
 
       <v-data-table
@@ -105,6 +105,7 @@ export default {
     loading: false,
     code: '',
     courses: [],
+    errmsg: '',
     notFoundAlert: false,
     headers: [
       {
@@ -130,11 +131,10 @@ export default {
     // axios.get(`http://localhost:3001/courses`).then((res) => {
     axios.get(`https://hkuexambaseapi.herokuapp.com/courses`).then((res) => {
       if(res.data.status == 404){
+        this.errmsg = res.data.msg;
         self.notFoundAlert = true; // show not found alert
       } else {
-        res.data.forEach(course => {
-          this.courses.push(course.code)
-        });
+        this.courses = res.data;
       }
       self.loading = false; // stop loading
     }).catch(err => {
@@ -151,6 +151,7 @@ export default {
         // axios.get(`http://localhost:3001/pastpaper/${self.code}`).then((res) => {
         axios.get(`https://hkuexambaseapi.herokuapp.com/pastpaper/${self.code}`).then((res) => {
           if(res.data.status == 404){
+            this.errmsg = res.data.msg;
             self.notFoundAlert = true; // show not found alert
           } else {
             self.pastpaper = res.data;
