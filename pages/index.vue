@@ -138,7 +138,6 @@ export default {
       }
       self.loading = false; // stop loading
     }).catch(err => {
-      console.log(err)
       self.loading = false; // stop loading
     })
   },
@@ -146,7 +145,6 @@ export default {
     searchByCode () {
       var self = this // create a closure to access component in the callback below
       self.notFoundAlert = false; // close not found alert
-      console.log(`self.code: ${self.code}`)
       if(self.code != null){
         self.loading = true; // start loading
         self.pastpaper = [];
@@ -159,7 +157,6 @@ export default {
           }
           self.loading = false; // stop loading
         }).catch(err => {
-          console.log(err)
           self.loading = false; // stop loading
         })
       }
