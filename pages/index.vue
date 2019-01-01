@@ -88,6 +88,7 @@
 
         </template>
       </v-data-table>
+      <span>Data will be collected anonymously in high confidentials for statistical use only</span>
     </v-flex>
   </v-layout>
 </template>
