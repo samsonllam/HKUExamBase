@@ -20,14 +20,15 @@
             <v-flex text-xs-center>
               <h3 class="display-2">HKUExamBase</h3>
               <br>
-              <v-text-field
+              <v-combobox
                 :loading="loading"
                 v-model="code"
-                label="Course Code"
-                color="rgba(150, 255, 120, 0.8)"
+                :items="courses"
                 clearable
+                color="rgba(150, 255, 120, 0.8)"
                 placeholder="ACCT1101"
-                @keyup.enter.native="searchByCode"
+                label="Course Code"
+                @change="searchByCode"
               />
             </v-flex>
           </v-layout>
@@ -103,6 +104,7 @@ export default {
     gradient: 'to top right, rgba(14,180,142, .7), rgba(0,158,214, .7)',
     loading: false,
     code: '',
+    courses: [],
     notFoundAlert: false,
     headers: [
       {
@@ -124,31 +126,43 @@ export default {
     ],
     pastpaper: [],
   }),
+  mounted: function () {
+    // axios.get(`http://localhost:3001/courses`).then((res) => {
+    axios.get(`https://hkuexambaseapi.herokuapp.com/courses`).then((res) => {
+      if(res.data.status == 404){
+        self.notFoundAlert = true; // show not found alert
+      } else {
+        res.data.forEach(course => {
+          this.courses.push(course.code)
+        });
+      }
+      self.loading = false; // stop loading
+    }).catch(err => {
+      console.log(err)
+      self.loading = false; // stop loading
+    })
+  },
   methods:{
     searchByCode () {
       var self = this // create a closure to access component in the callback below
-      self.loading = true; // start loading
       self.notFoundAlert = false; // close not found alert
-      self.pastpaper = [];
-      // axios.get(`http://localhost:3001/pastpaper/${self.code}`).then((res) => {
-      axios.get(`https://hkuexambaseapi.herokuapp.com/pastpaper/${self.code}`).then((res) => {
-        if(res.data.status == 404){
-          self.notFoundAlert = true; // show not found alert
-        } else {
-          self.pastpaper = res.data;
-        }
-        self.loading = false; // stop loading
-      }).catch(err => {
-        console.log(err)
-        self.loading = false; // stop loading
-      })
-
-      //       // exam_date = new Date(dateMatch[2], dateMatch[1], dateMatch[0]);
-
-      // if (parseInt(dateMatch[2]) <= 9) dateMatch[2] = '0' + dateMatch[2];
-      // if (parseInt(dateMatch[1]) <= 9) dateMatch[1] = '0' + dateMatch[1];
-
-      // exam_date = [dateMatch[3], dateMatch[2], dateMatch[1]].join('-');
+      console.log(`self.code: ${self.code}`)
+      if(self.code != null){
+        self.loading = true; // start loading
+        self.pastpaper = [];
+        // axios.get(`http://localhost:3001/pastpaper/${self.code}`).then((res) => {
+        axios.get(`https://hkuexambaseapi.herokuapp.com/pastpaper/${self.code}`).then((res) => {
+          if(res.data.status == 404){
+            self.notFoundAlert = true; // show not found alert
+          } else {
+            self.pastpaper = res.data;
+          }
+          self.loading = false; // stop loading
+        }).catch(err => {
+          console.log(err)
+          self.loading = false; // stop loading
+        })
+      }
     }
   },
 }
