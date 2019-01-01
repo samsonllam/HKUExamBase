@@ -3,7 +3,7 @@
 > Refined HKUL ExamBase
 
 <div align="center">
-    <img src="./assets/images/icon.png" width="300px"/>
+    <img src="./assets/images/icon_bg.jpg" width="400px"/>
 </div>
 
 ## Feature
