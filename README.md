@@ -1,4 +1,4 @@
-# HKUExamBase
+# HKUExamBase ![](https://travis-ci.com/samsonllam/HKUExamBase.svg?token=TXkauaqbYpw5oWjAU3rm&branch=master)
 
 > Refined HKUExamBase WebApp
 
