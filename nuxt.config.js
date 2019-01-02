@@ -11,7 +11,12 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name: 'description', content: pkg.description },
+      { name: 'og:title', content: pkg.name },
+      { name: 'og:description', content: pkg.description },
+      { name: 'og:type', content: 'website' },
+      { name: 'og:url', content: 'https://www.hkuexambase.ga' },
+      { name: 'og:image', content: '@/assets/images/icon.png' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },

@@ -29,7 +29,7 @@
                 type="text"
                 label="Course Code"
                 color="rgba(150, 255, 120, 0.8)"
-                placeholder="ACCT1101"
+                placeholder="COMP2119"
                 append-outer-icon="search"
                 @click:append-outer="searchByCode"
                 @keyup.enter.native="searchByCode"
