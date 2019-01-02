@@ -129,8 +129,8 @@ export default {
     pastpaper: [],
   }),
   mounted: function () {
-    axios.get(`http://localhost:3001/courses`).then((res) => {
-    // axios.get(`https://hkuexambaseapi.herokuapp.com/courses`).then((res) => {
+    // axios.get(`http://localhost:3001/courses`).then((res) => {
+    axios.get(`https://hkuexambaseapi.herokuapp.com/courses`).then((res) => {
       if(res.data.status == 404){
         this.errmsg = res.data.msg;
         self.notFoundAlert = true; // show not found alert
@@ -149,8 +149,8 @@ export default {
       if(self.code != null){
         self.loading = true; // start loading
         self.pastpaper = [];
-        axios.get(`http://localhost:3001/pastpaper/${self.code}`).then((res) => {
-        // axios.get(`https://hkuexambaseapi.herokuapp.com/pastpaper/${self.code}`).then((res) => {
+        // axios.get(`http://localhost:3001/pastpaper/${self.code}`).then((res) => {
+        axios.get(`https://hkuexambaseapi.herokuapp.com/pastpaper/${self.code}`).then((res) => {
           if(res.data.status == 404){
             this.errmsg = res.data.msg;
             self.notFoundAlert = true; // show not found alert
