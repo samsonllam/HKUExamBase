@@ -127,7 +127,7 @@ export default {
       }
     ],
     pastpaper: [],
-  }),
+  }), 
   mounted: function () {
     // axios.get(`http://localhost:3001/courses`).then((res) => {
     axios.get(`https://hkuexambaseapi.herokuapp.com/courses`).then((res) => {

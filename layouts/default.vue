@@ -62,7 +62,7 @@
       :fixed="fixed"
       app
     >
-      <span>&copy; {{ getYear() }} FREESOME</span>
+      <span>&copy; {{ getYear() }} MIKAMI</span>
     </v-footer>
   </v-app>
 </template>
