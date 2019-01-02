@@ -19,18 +19,32 @@
             <v-flex text-xs-center>
               <h3 class="display-2">HKUExamBase</h3>
               <br>
-              <span class="subheading">Refined HKUL ExamBase</span>
+              <span class="subheading">✨Refined HKUL ExamBase✨</span>
               <br><br>
-              <v-combobox
+              <v-text-field
+                :loading="loading"
+                v-model="code"
+                box
+                clearable
+                type="text"
+                label="Course Code"
+                color="rgba(150, 255, 120, 0.8)"
+                placeholder="ACCT1101"
+                append-outer-icon="search"
+                @click:append-outer="searchByCode"
+                @keyup.enter.native="searchByCode"
+              />
+              <!-- <v-combobox
                 :loading="loading"
                 v-model="code"
                 :items="courses"
                 clearable
                 color="rgba(150, 255, 120, 0.8)"
+                hide-no-data="false"
                 placeholder="ACCT1101"
                 label="Course Code"
                 @change="searchByCode"
-              />
+              /> -->
             </v-flex>
           </v-layout>
         </v-container>
