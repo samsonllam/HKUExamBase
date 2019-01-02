@@ -16,7 +16,7 @@ module.exports = {
       { name: 'og:description', content: pkg.description },
       { name: 'og:type', content: 'website' },
       { name: 'og:url', content: 'https://www.hkuexambase.ga' },
-      { name: 'og:image', content: '@/assets/images/icon.png' },
+      { name: 'og:image', content: 'https://raw.githubusercontent.com/samsonllam/HKUExamBase/master/assets/images/icon.png' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
