@@ -119,7 +119,7 @@ export default {
   data: () => ({
     loading: false,
     code: '',
-    courses: [],
+    // courses: [],
     errmsg: '',
     notFoundAlert: false,
     headers: [
@@ -142,20 +142,20 @@ export default {
     ],
     pastpaper: [],
   }), 
-  mounted: function () {
-    // axios.get(`http://localhost:3001/courses`).then((res) => {
-    axios.get(`https://hkuexambaseapi.herokuapp.com/courses`).then((res) => {
-      if(res.data.status == 404){
-        this.errmsg = res.data.msg;
-        self.notFoundAlert = true; // show not found alert
-      } else {
-        this.courses = res.data;
-      }
-      self.loading = false; // stop loading
-    }).catch(err => {
-      self.loading = false; // stop loading
-    })
-  },
+  // mounted: function () {
+  //   // axios.get(`http://localhost:3001/courses`).then((res) => {
+  //   axios.get(`https://hkuexambaseapi.herokuapp.com/courses`).then((res) => {
+  //     if(res.data.status == 404){
+  //       this.errmsg = res.data.msg;
+  //       self.notFoundAlert = true; // show not found alert
+  //     } else {
+  //       this.courses = res.data;
+  //     }
+  //     self.loading = false; // stop loading
+  //   }).catch(err => {
+  //     self.loading = false; // stop loading
+  //   })
+  // },
   methods:{
     searchByCode () {
       var self = this // create a closure to access component in the callback below
