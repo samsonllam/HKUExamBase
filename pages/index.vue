@@ -161,6 +161,7 @@ export default {
       var self = this // create a closure to access component in the callback below
       self.notFoundAlert = false; // close not found alert
       if(self.code != null){
+        self.code = self.code.replace(/\s/g, '');
         self.loading = true; // start loading
         self.pastpaper = [];
         // axios.get(`http://localhost:3001/pastpaper/${self.code}`).then((res) => {
