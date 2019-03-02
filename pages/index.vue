@@ -3,9 +3,9 @@
     column
     justify-center
   >
-    <v-flex 
-      xs12 
-      sm8 
+    <v-flex
+      xs12
+      sm8
       md6
     >
       <v-img
@@ -65,8 +65,8 @@
         :items="pastpaper"
         class="elevation-1"
       >
-        <template 
-          slot="items" 
+        <template
+          slot="items"
           slot-scope="props"
         >
           <td>{{ props.item.code }}</td>
@@ -75,7 +75,7 @@
           <td class="text-xs-right">{{ props.item.department.toString() }}</td>
 
           <td class="text-xs-center">
-            <v-tooltip 
+            <v-tooltip
               v-if="props.item.remark.length > 0"
               bottom
             >
@@ -89,10 +89,10 @@
               <span>{{ props.item.remark.toString() }}</span>
             </v-tooltip>
           </td>
-          
+
           <td class="text-xs-center">
-            <a 
-              v-if="!props.item.blocked" 
+            <a
+              v-if="!props.item.blocked"
               :href="props.item.url"
               target="_blank"
             >
@@ -103,6 +103,7 @@
         </template>
       </v-data-table>
       <span>Data will be collected anonymously in high confidentials for statistical use only</span>
+      <adsbygoogle />
     </v-flex>
   </v-layout>
 </template>
@@ -131,17 +132,17 @@ export default {
       { text: 'Title', value: 'title' },
       { text: 'Exam Date', value: 'exam_date' },
       { text: 'Department', value: 'department' },
-      { text: 'Remark', 
+      { text: 'Remark',
         sortable: false,
-        value: 'remark' 
+        value: 'remark'
       },
-      { text: 'Enter', 
+      { text: 'Enter',
         sortable: false,
-        value: 'enter' 
+        value: 'enter'
       }
     ],
     pastpaper: [],
-  }), 
+  }),
   // mounted: function () {
   //   // axios.get(`http://localhost:3001/courses`).then((res) => {
   //   axios.get(`https://hkuexambaseapi.herokuapp.com/courses`).then((res) => {
