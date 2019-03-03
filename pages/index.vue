@@ -103,12 +103,6 @@
         </template>
       </v-data-table>
       <p>Data will be collected anonymously in high confidentials for statistical use only</p>
-      <br>
-      <center>
-        <adsbygoogle
-          ad-slot="'7452650628'"
-          ad-format="auto"/>
-      </center>
     </v-flex>
   </v-layout>
 </template>
