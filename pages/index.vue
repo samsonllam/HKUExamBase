@@ -102,10 +102,13 @@
 
         </template>
       </v-data-table>
-      <span>Data will be collected anonymously in high confidentials for statistical use only</span>
-      <template>
-        <adsbygoogle :ad-slot="'7452650628'" />
-      </template>
+      <p>Data will be collected anonymously in high confidentials for statistical use only</p>
+      <br>
+      <center>
+        <adsbygoogle
+          ad-slot="'7452650628'"
+          ad-format="auto"/>
+      </center>
     </v-flex>
   </v-layout>
 </template>
@@ -143,7 +146,7 @@ export default {
         value: 'enter'
       }
     ],
-    pastpaper: [],
+    pastpaper: []
   }),
   // mounted: function () {
   //   // axios.get(`http://localhost:3001/courses`).then((res) => {
