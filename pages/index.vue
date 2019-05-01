@@ -128,6 +128,7 @@ export default {
         align: 'left',
         value: 'code'
       },
+      // TODO: title align cneter and font size
       { text: 'Title', value: 'title' },
       { text: 'Exam Date', value: 'exam_date' },
       { text: 'Department', value: 'department' },
@@ -165,7 +166,7 @@ export default {
         self.loading = true; // start loading
         self.pastpaper = [];
         // axios.get(`http://localhost:3001/pastpaper/${self.code}`).then((res) => {
-        axios.get(`https://hkuexambaseapi.herokuapp.com/pastpaper/${self.code}`).then((res) => {
+        axios.get(`https://hongkonguexambaseapi.herokuapp.com/pastpaper/${self.code}`).then((res) => {
           if(res.data.status == 404){
             this.errmsg = res.data.msg;
             self.notFoundAlert = true; // show not found alert
