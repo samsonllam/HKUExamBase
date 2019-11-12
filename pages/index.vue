@@ -70,9 +70,9 @@
           slot-scope="props"
         >
           <td>{{ props.item.code }}</td>
-          <td class="text-xs-right">{{ props.item.title }}</td>
-          <td class="text-xs-right">{{ props.item.exam_date }}</td>
-          <td class="text-xs-right">{{ props.item.department.toString() }}</td>
+          <td class="text-xs">{{ props.item.title }}</td>
+          <td class="text-xs">{{ props.item.exam_date }}</td>
+          <td class="text-xs">{{ props.item.department.toString() }}</td>
 
           <td class="text-xs-center">
             <v-tooltip
@@ -128,17 +128,27 @@ export default {
         align: 'left',
         value: 'code'
       },
-      // TODO: title align cneter and font size
-      { text: 'Title', value: 'title' },
-      { text: 'Exam Date', value: 'exam_date' },
-      { text: 'Department', value: 'department' },
+      { text: 'Title',
+        value: 'title',
+        align: 'left'
+      },
+      { text: 'Exam Date',
+        value: 'exam_date',
+        align: 'left'
+      },
+      { text: 'Department',
+        value: 'department',
+        align: 'left'
+      },
       { text: 'Remark',
         sortable: false,
         value: 'remark'
       },
       { text: 'Enter',
         sortable: false,
-        value: 'enter'
+        value: 'enter',
+        align: 'center'
+
       }
     ],
     pastpaper: []
